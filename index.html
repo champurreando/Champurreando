@@ -6,54 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #0f0f0f;
+      background-color: #0f0f0f;
       color: #ffffff;
     }
 
     .container {
-      width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       margin: 0 auto;
-      padding: 40px 16px 80px;
+      padding: 40px 16px 60px;
       text-align: center;
     }
 
     .logo {
       width: 100%;
-      max-width: 320px;
-      margin: 0 auto 16px;
+      max-width: 300px;
+      margin: 0 auto 20px;
       display: block;
     }
 
-    p {
+    .description {
       font-size: 14px;
       opacity: 0.85;
       margin-bottom: 32px;
     }
 
-    a {
+    .btn {
       display: block;
       padding: 14px;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
       border: 1px solid #ffffff;
       border-radius: 12px;
       color: #ffffff;
       text-decoration: none;
+      text-align: center;
     }
 
-    a:active {
+    .btn:active {
       opacity: 0.7;
     }
 
+    /* ===== SECCIONES ===== */
+
     .section {
-      margin-top: 40px;
+      margin-top: 60px;
       padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.2);
+      border-top: 1px solid rgba(255,255,255,0.25);
       scroll-margin-top: 40px;
-      text-align: left;
+      text-align: center;
     }
 
     .section h2 {
@@ -64,21 +70,41 @@
     .section p {
       font-size: 14px;
       line-height: 1.6;
-      color: #dddddd;
-      opacity: 1;
-      margin-bottom: 0;
+      color: #e0e0e0;
+      margin: 0;
+    }
+
+    /* ===== REDES ===== */
+
+    .socials {
+      margin-top: 32px;
     }
   </style>
 </head>
 
 <body>
+
   <div class="container">
+
     <img src="logo.png" alt="Champurreando" class="logo">
 
-    <p>Recomendaciones reales de comida, lugares y experiencias</p>
+    <p class="description">
+      Recomendaciones reales de comida, lugares y experiencias
+    </p>
 
-    <a href="#quienes-somos">👋 Quiénes somos</a>
+    <!-- BOTÓN ANCLA -->
+    <a href="#quienes-somos" class="btn">👋 Quiénes somos</a>
 
+    <!-- REDES (PLACEHOLDERS) -->
+    <div class="socials">
+      <a href="#" class="btn">🎵 TikTok</a>
+      <a href="#" class="btn">📸 Instagram</a>
+      <a href="#" class="btn">📘 Facebook</a>
+      <a href="#" class="btn">▶️ YouTube</a>
+      <a href="#" class="btn">👤 El creador</a>
+    </div>
+
+    <!-- SECCIÓN DESTINO -->
     <div id="quienes-somos" class="section">
       <h2>¿Quiénes somos?</h2>
       <p>
@@ -87,6 +113,8 @@
         como entre amigos.
       </p>
     </div>
+
   </div>
+
 </body>
 </html>
