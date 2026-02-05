@@ -1,160 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Champurreando</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Champurreando</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #0f0f0f;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-}
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 16px 80px;
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
 
-.container {
-  width: 100%;
-  max-width: 420px;
-  padding: 40px 16px 80px;
-  text-align: center;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.logo {
-  width: 220px;
-  margin: 0 auto 16px;
-  display: block;
-}
+    .logo {
+      width: 280px;
+      margin: 0 auto 20px;
+      display: block;
+    }
 
-.subtitle {
-  font-size: 14px;
-  opacity: 0.75;
-  margin-bottom: 32px;
-}
+    .subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 32px;
+    }
 
-/* BOTONES */
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* 👈 centra todo */
-  gap: 14px;
-  padding: 14px 16px;
-  margin-bottom: 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.4);
-  background: rgba(255,255,255,.03);
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px;
-  transition: transform .2s ease, background .2s ease;
-}
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #ffffff;
+      border-radius: 14px;
+      color: #ffffff;
+      text-decoration: none;
+      background: transparent;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      cursor: pointer;
+    }
 
-.btn img {
-  width: 22px;
-  height: 22px;
-}
+    .btn img {
+      width: 22px;
+      height: 22px;
+    }
 
-.btn:hover {
-  background: rgba(255,255,255,.08);
-  transform: translateY(-2px);
-}
+    .btn:active {
+      transform: scale(0.97);
+    }
 
-/* QUIENES SOMOS */
-.toggle {
-  cursor: pointer;
-}
+    /* Glow por red */
+    .instagram:hover {
+      box-shadow: 0 0 18px rgba(225, 48, 108, 0.6);
+      border-color: #e1306c;
+    }
 
-.section {
-  display: none;
-  margin: 18px 0 32px;
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.06);
-  animation: fade .3s ease;
-}
+    .tiktok:hover {
+      box-shadow: 0 0 18px rgba(0, 242, 234, 0.6);
+      border-color: #00f2ea;
+    }
 
-.section h2 {
-  margin-top: 0;
-  font-size: 18px;
-}
+    .youtube:hover {
+      box-shadow: 0 0 18px rgba(255, 0, 0, 0.6);
+      border-color: #ff0000;
+    }
 
-.section p {
-  font-size: 14px;
-  line-height: 1.5;
-  opacity: .85;
-}
+    .facebook:hover {
+      box-shadow: 0 0 18px rgba(24, 119, 242, 0.6);
+      border-color: #1877f2;
+    }
 
-/* ANIMACIÓN */
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
+    /* Quiénes somos desplegable */
+    .about {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, opacity .3s ease;
+      opacity: 0;
+      margin-bottom: 24px;
+    }
+
+    .about.open {
+      max-height: 300px;
+      opacity: 1;
+    }
+
+    .about p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.85;
+      margin-top: 12px;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
+  <div class="container">
 
-<img src="logo.png" alt="Champurreando" class="logo">
-<p class="subtitle">Recomendaciones reales de comida, lugares y experiencias</p>
+    <img src="logo.png" alt="Champurreando" class="logo">
 
-<!-- QUIENES SOMOS -->
-<div class="btn toggle" onclick="toggleAbout()">
-  👋 Quiénes somos
-</div>
+    <p class="subtitle">
+      Recomendaciones reales de comida, lugares y experiencias
+    </p>
 
-<div id="about" class="section">
-  <h2>¿Quiénes somos?</h2>
-  <p>
-    Champurreando es un espacio de recomendaciones reales:
-    comida, lugares y experiencias contadas sin poses,
-    como entre amigos.
-  </p>
-</div>
+    <!-- Botón Quiénes somos -->
+    <div class="btn" onclick="toggleAbout()">
+      👋 Quiénes somos
+    </div>
 
-<!-- REDES -->
-<a class="btn" href="#" target="_blank">
-  <img src="icons/instagram.svg" alt="Instagram">
-  Instagram
-</a>
+    <!-- Texto desplegable -->
+    <div class="about" id="about">
+      <p>
+        Champurreando es un espacio donde recomendamos comida,
+        lugares y experiencias reales, sin poses ni filtros.
+        Lo que sí vale la pena, contado como entre amigos.
+      </p>
+    </div>
 
-<a class="btn" href="#" target="_blank">
-  <img src="icons/tiktok.svg" alt="TikTok">
-  TikTok
-</a>
+    <!-- Redes -->
+    <a href="#" class="btn instagram">
+      <img src="icons/instagram.svg" alt="">
+      Instagram
+    </a>
 
-<a class="btn" href="#" target="_blank">
-  <img src="icons/facebook.svg" alt="Facebook">
-  Facebook
-</a>
+    <a href="#" class="btn tiktok">
+      <img src="icons/tiktok.svg" alt="">
+      TikTok
+    </a>
 
-<a class="btn" href="#" target="_blank">
-  <img src="icons/youtube.svg" alt="YouTube">
-  YouTube
-</a>
+    <a href="#" class="btn youtube">
+      <img src="icons/youtube.svg" alt="">
+      YouTube
+    </a>
 
-</div>
+    <a href="#" class="btn facebook">
+      <img src="icons/facebook.svg" alt="">
+      Facebook
+    </a>
 
-<script>
-function toggleAbout() {
-  const section = document.getElementById("about");
-  section.style.display =
-    section.style.display === "block" ? "none" : "block";
-}
-</script>
+  </div>
 
+  <script>
+    function toggleAbout() {
+      const about = document.getElementById("about");
+      about.classList.toggle("open");
+    }
+  </script>
 </body>
 </html>
