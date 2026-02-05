@@ -6,10 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -34,56 +30,81 @@
     .description {
       font-size: 14px;
       opacity: 0.85;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
+
+    /* ===== BOTONES ===== */
 
     .btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 14px;
       margin-bottom: 16px;
-      border: 1px solid #ffffff;
-      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 14px;
       color: #ffffff;
       text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ===== QUIÉNES SOMOS (DESPLEGABLE) ===== */
+
+    details {
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      padding: 14px;
       text-align: center;
+      transition: all 0.3s ease;
     }
 
-    .btn:active {
-      opacity: 0.7;
+    summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    /* ===== SECCIONES ===== */
-
-    .section {
-      margin-top: 60px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.25);
-      scroll-margin-top: 40px;
-      text-align: center;
+    summary::-webkit-details-marker {
+      display: none;
     }
 
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .section p {
+    details p {
+      margin-top: 14px;
       font-size: 14px;
       line-height: 1.6;
       color: #e0e0e0;
-      margin: 0;
+      animation: fadeIn 0.3s ease;
     }
 
-    /* ===== REDES ===== */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-    .socials {
-      margin-top: 32px;
+    /* ===== ICONOS ===== */
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      fill: white;
     }
   </style>
 </head>
 
 <body>
-
   <div class="container">
 
     <img src="logo.png" alt="Champurreando" class="logo">
@@ -92,29 +113,37 @@
       Recomendaciones reales de comida, lugares y experiencias
     </p>
 
-    <!-- BOTÓN ANCLA -->
-    <a href="#quienes-somos" class="btn">👋 Quiénes somos</a>
-
-    <!-- REDES (PLACEHOLDERS) -->
-    <div class="socials">
-      <a href="#" class="btn">🎵 TikTok</a>
-      <a href="#" class="btn">📸 Instagram</a>
-      <a href="#" class="btn">📘 Facebook</a>
-      <a href="#" class="btn">▶️ YouTube</a>
-      <a href="#" class="btn">👤 El creador</a>
-    </div>
-
-    <!-- SECCIÓN DESTINO -->
-    <div id="quienes-somos" class="section">
-      <h2>¿Quiénes somos?</h2>
+    <!-- QUIÉNES SOMOS -->
+    <details>
+      <summary>👋 Quiénes somos</summary>
       <p>
         Champurreando es un espacio de recomendaciones reales:
         comida, lugares y experiencias contadas sin poses,
         como entre amigos.
       </p>
-    </div>
+    </details>
+
+    <!-- REDES -->
+    <a href="#" class="btn">
+      <img src="icons/tiktok.svg" class="icon"> TikTok
+    </a>
+
+    <a href="#" class="btn">
+      <img src="icons/instagram.svg" class="icon"> Instagram
+    </a>
+
+    <a href="#" class="btn">
+      <img src="icons/facebook.svg" class="icon"> Facebook
+    </a>
+
+    <a href="#" class="btn">
+      <img src="icons/youtube.svg" class="icon"> YouTube
+    </a>
+
+    <a href="#" class="btn">
+      <img src="icons/user.svg" class="icon"> El creador
+    </a>
 
   </div>
-
 </body>
 </html>
